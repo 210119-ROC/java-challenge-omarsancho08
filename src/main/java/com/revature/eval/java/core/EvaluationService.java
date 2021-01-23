@@ -22,7 +22,15 @@ public class EvaluationService {
 
 		public static long toMilesPerHour(double kilometersPerHour) {
 			// TODO Write an implementation for this method declaration
-			return 0;
+			
+			if(kilometersPerHour<=0) {
+				System.out.println("The value entered was less than or equal to 0");
+				return -1;
+			}else {
+			
+			return  Math.round(kilometersPerHour / 1.609);
+			}
+			
 		}
 
 		/**
@@ -42,7 +50,14 @@ public class EvaluationService {
 		 */
 		public static String printConversion(double kilometersPerHour) {
 			// TODO Write an implementation for this method declaration
-			return null;
+			
+			if(kilometersPerHour<0) {
+				System.out.println("Invalid Value");
+			}else {
+				long mph = toMilesPerHour(kilometersPerHour);
+				System.out.println(kilometersPerHour+" km/h ="+ mph+" mi/h");
+			}
+			return null;	
 		}
 	}
 
@@ -66,8 +81,16 @@ public class EvaluationService {
 	 * If the parameter kiloBytes is less than 0 then print the text "Invalid
 	 * Value".
 	 */
-	public String printMegaBytesAndKiloBytes(int XX) {
+	public  String printMegaBytesAndKiloBytes(int kiloBytes) {
 		// TODO Write an implementation for this method declaration
+		
+		if(kiloBytes<0) {
+			System.out.println("Invalid Value");
+		}else {
+			int mb = (kiloBytes/1000);
+			int kb = (mb%1000);
+			System.out.println(kiloBytes+" KB = "+mb+" MB and "+kb+" KB");
+		}
 		return null;
 	}
 
@@ -90,9 +113,22 @@ public class EvaluationService {
 	 * 
 	 * If the hourOfDay parameter is less than 0 or greater than 23, return false.
 	 */
-	public boolean shouldWakeUp(boolean isBarking, int hourOfDay) {
+	public static boolean shouldWakeUp(boolean isBarking, int hourOfDay) {
 		// TODO Write an implementation for this method declaration
+		if(hourOfDay<0 || hourOfDay>23) {
+			
+			return false;
+			
+		}else if(isBarking==true && hourOfDay<8 || hourOfDay>22) {
+			
+			System.out.println("Wake up the dog is barking");
+			return true;
+			
+		}else
+		
 		return false;
+		
+		
 	}
 
 	/**
@@ -108,7 +144,14 @@ public class EvaluationService {
 	 */
 	public boolean areEqualByThreeDecimalPlaces(double firstNum, double secondNum) {
 		// TODO Write an implementation for this method declaration
-		return false;
+		if(firstNum==secondNum) {
+			
+			System.out.println("They are the same");
+			return true;
+		}else
+			
+			System.out.println("Not equal!");
+			return false;
 	}
 
 	/**
@@ -125,6 +168,11 @@ public class EvaluationService {
 
 		public static boolean hasTeen(int x, int y, int z) {
 			// TODO Write an implementation for this method declaration
+			if((x>=13 && x<=19)||(y>=13 &&y<=19) || (z>=13&&z<=19)) {
+				System.out.println("hasTeen: true");
+				return true;
+			}
+			System.out.println("False");
 			return false;
 		}
 
@@ -133,6 +181,9 @@ public class EvaluationService {
 
 		public static boolean isTeen(int number) {
 			// TODO Write an implementation for this method declaration
+			if(number>=13 && number<=19) {
+				return true;
+			}
 			return false;
 		}
 	}
@@ -153,8 +204,16 @@ public class EvaluationService {
 	 * ZZ represents the calculated days.
 	 */
 	public String printYearsAndDays(long minutes) {
-		// TODO Write an implementation for this method declaration
+		
+		if(minutes<0) {
+			System.out.println("Invalid Value");
+		}else {
+			long year = (minutes/525600);
+			long day = (minutes/1440);
+			System.out.println(minutes+" min = "+year+" :Years and "+day+" :Days");
+		}
 		return null;
+		
 	}
 
 	/**
@@ -166,8 +225,32 @@ public class EvaluationService {
 	 * for any other number including negative numbers. You can use if-else
 	 * statement or switch statement whatever is easier for you.
 	 */
-	public String printNumberInWord(int number) {
+	public  String printNumberInWord(int number) {
 		// TODO Write an implementation for this method declaration
+		if(number<=1 || number<=-1) {
+			System.out.println("One");
+		}else if(number<=2 || number<=-2) {
+			System.out.println("Two");
+		}else if(number<=3 || number<=-3) {
+			System.out.println("Three");
+		}else if(number<=4 || number<=-4) {
+			System.out.println("Four");
+		}else if(number<=5 || number<=-5) {
+			System.out.println("Five");
+		}else if(number<=6 || number<=-6) {
+			System.out.println("Six");
+		}else if(number<=7 || number<=-7) {
+			System.out.println("Seven");
+		}else if(number<=8 || number<=-8) {
+			System.out.println("Eight");
+		}else if(number<=9 || number<=-9) {
+			System.out.println("Nine");
+		}else if(number<=13 || number<=-13) {
+			System.out.println("Thirteen");
+		}else {
+			System.out.println("Zero");
+		}
+		
 		return null;
 	}
 
